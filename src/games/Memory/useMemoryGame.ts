@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import { generateCards, updateBoard } from './actions';
 import type { Card, Pair, UseMemoryGameReturn } from './types';
 import { CARDS_COUNT } from './constants';
