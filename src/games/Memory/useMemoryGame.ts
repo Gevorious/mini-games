@@ -9,19 +9,10 @@ export const useMemoryGame = (): UseMemoryGameReturn => {
   const [isStarted, setIsStarted] = useState(false);
   const [activePair, setActivePair] = useState<Pair<number>>([]);
   const pairsRemainingRef = useRef<number>(CARDS_COUNT / 2);
-  const mismatchTimeoutRef = useRef<number | null>(null);
 
   const { success } = useModal();
 
-  const clearMismatchTimeout = () => {
-    if (mismatchTimeoutRef.current) {
-      clearTimeout(mismatchTimeoutRef.current);
-      mismatchTimeoutRef.current = null;
-    }
-  };
-
   const resetBoard = useCallback(() => {
-    clearMismatchTimeout();
     setBoard((prev) => prev.map((card) => ({ ...card, isOpen: false })));
     setIsStarted(false);
 
@@ -52,6 +43,7 @@ export const useMemoryGame = (): UseMemoryGameReturn => {
     }
 
     const nextPair = [...activePair, idx] as Pair<number>;
+    if (nextPair[0] === nextPair[1]) return;
     setActivePair(nextPair);
 
     if (nextPair.length === 2) {
@@ -65,23 +57,15 @@ export const useMemoryGame = (): UseMemoryGameReturn => {
           endGame();
         }
       } else {
-        clearMismatchTimeout();
-        mismatchTimeoutRef.current = window.setTimeout(() => {
+        setTimeout(() => {
           setActivePair([]);
-          mismatchTimeoutRef.current = null;
-        }, 2000);
+        }, 1000);
       }
     }
   };
 
   const isFlipped = (id: number) =>
     activePair?.some((idx) => board[idx].id === id);
-
-  useEffect(() => {
-    return () => {
-      clearMismatchTimeout();
-    };
-  }, []);
 
   return {
     isStarted,
