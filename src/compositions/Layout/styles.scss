@@ -1,0 +1,10 @@
+.layout {
+  height: 100vh;
+  background: $background-light;
+  color: $text-dark;
+
+  .main {
+    margin-left: $sidebar-width;
+    min-height: calc(100% - $header-height - $footer-height);
+  }
+}

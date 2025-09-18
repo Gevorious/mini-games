@@ -1,0 +1,82 @@
+//theme colors
+$primary: #1f1c2c;
+$secondary: #4ca1af;
+$secondary-light: #9acdd4;
+$background-light: #f8f9fa;
+$primary-light: #928dab;
+
+//general colors
+$white: #ffffff;
+$black: #000000;
+$gray: #f5f5f5;
+$gray-dark: #333333;
+$gray-light: #f9f9f9;
+$page-bg: #f0f8ff;
+$neon-green: #39ff14;
+$neon-green-shadow: #39ff1488;
+$neon-red: #ff002b;
+$neon-red-shadow: #ff002b88;
+
+//alert colors
+$success: #5bc783;
+$warning: #ffc107;
+$error: #d92525;
+$info: #17a2b8;
+
+//button colors
+$btn-primary: #048abf;
+$btn-primary-hover: #02698f;
+$btn-primary-disabled: #b3d9e7;
+$btn-secondary: #ffb84d;
+$btn-secondary-hover: #e99a24;
+$btn-secondary-disabled: #e7d9b3;
+$btn-text: #333333;
+$btn-text-hover: #000000;
+$btn-text-disabled: #b3b3b3;
+
+//menu and navigation colors
+$menu-items: #000c2e;
+$menu-items-light: #f0fcfd;
+$menu-item-underline: #ffffff;
+$menu-items-hover: #f0fcfd;
+$menu-items-text: #000c2e;
+$menu-items-text-light: #ffffff;
+
+//text colors
+$text-default: #1c1b1d;
+$text-light: #ffffff;
+$text-dark: #222324;
+
+//border colors
+$border-color-light: rgba(0, 0, 0, 0.1);
+$border-color-medium: #6da4aa;
+$border-color: #000c2e;
+
+//icon and image colors
+$password-eye-icon: #929292;
+$success-icon: #5bc783;
+$error-icon: #d92525;
+$info-icon: #17a2b8;
+$thumbnail-bg: #ffffff;
+
+//modal colors
+$backdrop-color: rgba(0, 0, 0, 0.5);
+$modal-bg: #ffffff;
+
+$color-maps: (
+  success: #5bc783,
+  warning: #ffc107,
+  error: #d92525,
+  info: #17a2b8,
+  menu-items: #006d77,
+  main-theme: #006d77,
+  main-theme-light: #dbf7fa,
+  main-theme-secondary: #4b9e9e,
+  main-theme-secondary-yellow: #ffb84d,
+);
+
+:root {
+  @each $name, $color in $color-maps {
+    --#{$name}: #{$color};
+  }
+}

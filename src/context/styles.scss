@@ -1,0 +1,57 @@
+.modal__overlay {
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 50;
+}
+
+.modal__content {
+  background-color: #18202e;
+  border: 2px solid #2d3748;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+
+  h2 {
+    font-size: 2rem;
+    font-family: 'Digital7', monospace;
+  }
+
+  .modal__body {
+    font-size: 1.2rem;
+    color: #d1d5db;
+    margin-bottom: 1.5rem;
+  }
+
+  button {
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+
+    &.success {
+      background-color: $neon-green;
+      &:hover {
+        background-color: $neon-green;
+      }
+    }
+
+    &.fail {
+      background-color: $neon-red;
+      &:hover {
+        background-color: $neon-red;
+      }
+    }
+  }
+
+  &.success h2 {
+    color: $neon-green;
+  }
+
+  &.fail h2 {
+    color: $neon-red;
+  }
+}

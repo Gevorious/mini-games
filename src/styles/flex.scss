@@ -1,0 +1,51 @@
+@use './vars/flex-vars' as *;
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.inline-flex {
+  display: inline-flex;
+}
+
+@each $name, $direction in $flex-directions {
+  .flex--#{$name} {
+    flex-direction: $direction !important;
+  }
+}
+
+@each $name, $wrap in $flex-wraps {
+  .flex-wrap--#{$name} {
+    flex-wrap: $wrap !important;
+  }
+}
+
+@each $name, $justify in $justify-content {
+  .justify--#{$name} {
+    justify-content: $justify !important;
+  }
+}
+
+@each $name, $align in $align-items {
+  .align--#{$name} {
+    align-items: $align !important;
+  }
+}
+
+// Generate align-self classes (for individual items)
+@each $name, $self in $align-self {
+  .self--#{$name} {
+    align-self: $self !important;
+  }
+}
+
+// Generate align-content classes
+@each $name, $content in $align-content {
+  .content--#{$name} {
+    align-content: $content !important;
+  }
+}

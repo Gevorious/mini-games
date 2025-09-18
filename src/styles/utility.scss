@@ -1,0 +1,45 @@
+@use './vars/breakpoints' as *;
+@use 'sass:list';
+
+.pointer {
+  cursor: pointer;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@each $name, $range in $breakpoints {
+  $min: list.nth($range, 1);
+  $max: list.nth($range, 2);
+
+  @media #{'(min-width: ' + $min + 'px)' + if($max != null, ' and (max-width: ' + $max + 'px)', '')} {
+    .hidden--#{$name} {
+      display: none !important;
+    }
+  }
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}

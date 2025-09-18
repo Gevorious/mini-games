@@ -1,0 +1,64 @@
+.sidebar {
+  width: $sidebar-width;
+  height: 100vh;
+  background: linear-gradient(180deg, $primary, $primary-light);
+  color: #fff;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.25);
+  letter-spacing: 1px;
+  left: 0;
+  top: 0;
+
+  &__nav {
+    margin-top: $header-height;
+    gap: 0.5rem;
+    flex-grow: 1;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    transition: background 0.2s, transform 0.2s;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateX(4px);
+    }
+
+    &.active {
+      background: rgba(255, 255, 255, 0.2);
+      font-weight: 600;
+    }
+  }
+
+  &__dropdown {
+    > .sidebar__link {
+      &:hover {
+        background: rgba(255, 255, 255, 0.15);
+        transform: translateX(2px);
+      }
+    }
+  }
+
+  &__submenu {
+    margin-top: 0.25rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    gap: 0.25rem;
+
+    .sidebar__link {
+      font-size: 0.9rem;
+      opacity: 0.85;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(2px);
+      }
+
+      &.active {
+        background: rgba(255, 255, 255, 0.25);
+        font-weight: 600;
+      }
+    }
+  }
+}

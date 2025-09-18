@@ -1,0 +1,31 @@
+.dashboard-card {
+  background: linear-gradient(145deg, $primary, $secondary);
+  border: 2px solid $secondary-light;
+  border-radius: 16px;
+  width: 280px;
+  height: 160px;
+  text-decoration: none;
+  color: #e2e8f0;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+
+  box-shadow: 0 0 10px rgba($secondary, 0.4),
+    inset 0 0 6px rgba($secondary, 0.2);
+
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 12px rgba($secondary, 0.8),
+      inset 0 0 8px rgba($secondary, 0.4);
+    border-color: rgba($secondary, 0.7);
+    color: #ffffff;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $secondary-light;
+  }
+}

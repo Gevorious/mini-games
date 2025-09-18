@@ -1,0 +1,21 @@
+@use './fonts';
+@use './flex';
+@use './spacings';
+@use './utility';
+@use './sizes';
+@use './text';
+
+@include spacings.generate-spacing-utilities;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}

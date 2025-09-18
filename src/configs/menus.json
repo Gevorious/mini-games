@@ -1,0 +1,13 @@
+[
+  {
+    "label": "Home",
+    "to": "/"
+  },
+  {
+    "label": "Games",
+    "children": [
+      { "label": "Minesweeper", "to": "/games/minesweeper" },
+      { "label": "Memory", "to": "/games/memory" }
+    ]
+  }
+]

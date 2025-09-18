@@ -1,0 +1,79 @@
+.memory-game {
+  max-width: max-content;
+  max-width: 80%;
+  background-color: #1a1f2c;
+  border-radius: 8px;
+  box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.05),
+    inset -2px -2px 4px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.4);
+
+  .heading {
+    color: $neon-green;
+    border: 2px solid #2d3748;
+    background-color: #18202e;
+    border-radius: 6px;
+    font-size: 2.5rem;
+    font-weight: 500;
+    font-family: 'Digital7', monospace;
+    text-shadow: 0 0 2px $neon-green-shadow, 0 0 2px $neon-green-shadow,
+      0 0 2px $neon-green-shadow;
+  }
+
+  .memory-board {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 8px;
+    width: 100%;
+    perspective: 1000px;
+  }
+
+  .memory-card {
+    width: 100%;
+    aspect-ratio: 3/4;
+    cursor: pointer;
+    perspective: 1500px;
+
+    &__inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease-in-out;
+      transform-style: preserve-3d;
+    }
+
+    &.flipped .memory-card__inner {
+      transform: rotateY(180deg);
+    }
+
+    &__front,
+    &__back {
+      position: absolute;
+      inset: 0;
+      border-radius: 0.75rem;
+      backface-visibility: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+
+    &__front {
+      background: linear-gradient(145deg, #3e4552, #1a202c);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    &__back {
+      background: #fff;
+      transform: rotateY(180deg);
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+      }
+    }
+  }
+}

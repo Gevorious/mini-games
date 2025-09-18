@@ -1,0 +1,9 @@
+@use './vars/text' as *;
+
+.text {
+  @each $key, $value in $text-align {
+    &--#{$key} {
+      text-align: $value;
+    }
+  }
+}

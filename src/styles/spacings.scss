@@ -1,0 +1,204 @@
+@use './vars/layout' as *;
+@use './vars/spacing-vars' as *;
+
+@mixin generate-spacing-utilities {
+  @each $key, $value in $spacing-map {
+    .m--#{$key} {
+      margin: $value;
+    }
+    .mt--#{$key} {
+      margin-top: $value;
+    }
+    .mr--#{$key} {
+      margin-right: $value;
+    }
+    .mb--#{$key} {
+      margin-bottom: $value;
+    }
+    .ml--#{$key} {
+      margin-left: $value;
+    }
+    .mx--#{$key} {
+      margin-left: $value;
+      margin-right: $value;
+    }
+    .my--#{$key} {
+      margin-top: $value;
+      margin-bottom: $value;
+    }
+
+    .p--#{$key} {
+      padding: $value;
+    }
+    .pt--#{$key} {
+      padding-top: $value;
+    }
+    .pr--#{$key} {
+      padding-right: $value;
+    }
+    .pb--#{$key} {
+      padding-bottom: $value;
+    }
+    .pl--#{$key} {
+      padding-left: $value;
+    }
+    .px--#{$key} {
+      padding-left: $value;
+      padding-right: $value;
+    }
+    .py--#{$key} {
+      padding-top: $value;
+      padding-bottom: $value;
+    }
+
+    @media (max-width: $mobile-width-max) {
+      .m-sm--#{$key} {
+        margin: $value;
+      }
+      .mt-sm--#{$key} {
+        margin-top: $value;
+      }
+      .mr-sm--#{$key} {
+        margin-right: $value;
+      }
+      .mb-sm--#{$key} {
+        margin-bottom: $value;
+      }
+      .ml-sm--#{$key} {
+        margin-left: $value;
+      }
+      .mx-sm--#{$key} {
+        margin-left: $value;
+        margin-right: $value;
+      }
+      .my-sm--#{$key} {
+        margin-top: $value;
+        margin-bottom: $value;
+      }
+
+      .p-sm--#{$key} {
+        padding: $value;
+      }
+      .pt-sm--#{$key} {
+        padding-top: $value;
+      }
+      .pr-sm--#{$key} {
+        padding-right: $value;
+      }
+      .pb-sm--#{$key} {
+        padding-bottom: $value;
+      }
+      .pl-sm--#{$key} {
+        padding-left: $value;
+      }
+      .px-sm--#{$key} {
+        padding-left: $value;
+        padding-right: $value;
+      }
+      .py-sm--#{$key} {
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+    }
+
+    @media (min-width: $tablet-width-min) and (max-width: $tablet-width-max) {
+      .m-md--#{$key} {
+        margin: $value;
+      }
+      .mt-md--#{$key} {
+        margin-top: $value;
+      }
+      .mr-md--#{$key} {
+        margin-right: $value;
+      }
+      .mb-md--#{$key} {
+        margin-bottom: $value;
+      }
+      .ml-md--#{$key} {
+        margin-left: $value;
+      }
+      .mx-md--#{$key} {
+        margin-left: $value;
+        margin-right: $value;
+      }
+      .my-md--#{$key} {
+        margin-top: $value;
+        margin-bottom: $value;
+      }
+
+      .p-md--#{$key} {
+        padding: $value;
+      }
+      .pt-md--#{$key} {
+        padding-top: $value;
+      }
+      .pr-md--#{$key} {
+        padding-right: $value;
+      }
+      .pb-md--#{$key} {
+        padding-bottom: $value;
+      }
+      .pl-md--#{$key} {
+        padding-left: $value;
+      }
+      .px-md--#{$key} {
+        padding-left: $value;
+        padding-right: $value;
+      }
+      .py-md--#{$key} {
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+    }
+
+    @media (min-width: $tablet-width-max) {
+      .m-lg--#{$key} {
+        margin: $value;
+      }
+      .mt-lg--#{$key} {
+        margin-top: $value;
+      }
+      .mr-lg--#{$key} {
+        margin-right: $value;
+      }
+      .mb-lg--#{$key} {
+        margin-bottom: $value;
+      }
+      .ml-lg--#{$key} {
+        margin-left: $value;
+      }
+      .mx-lg--#{$key} {
+        margin-left: $value;
+        margin-right: $value;
+      }
+      .my-lg--#{$key} {
+        margin-top: $value;
+        margin-bottom: $value;
+      }
+
+      .p-lg--#{$key} {
+        padding: $value;
+      }
+      .pt-lg--#{$key} {
+        padding-top: $value;
+      }
+      .pr-lg--#{$key} {
+        padding-right: $value;
+      }
+      .pb-lg--#{$key} {
+        padding-bottom: $value;
+      }
+      .pl-lg--#{$key} {
+        padding-left: $value;
+      }
+      .px-lg--#{$key} {
+        padding-left: $value;
+        padding-right: $value;
+      }
+      .py-lg--#{$key} {
+        padding-top: $value;
+        padding-bottom: $value;
+      }
+    }
+  }
+}
