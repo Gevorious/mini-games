@@ -19,7 +19,7 @@ const Countdown = ({ started, reset }: CountdownProps) => {
     }
 
     const start = Date.now();
-    const interval = setInterval(() => {
+    const interval = window.setInterval(() => {
       const current = Date.now() - 1000;
       const remaining = Math.max(0, COUNTDOWN_TIME - (current - start)); // ms
 

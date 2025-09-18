@@ -15,7 +15,7 @@ const Timer = ({ start, reset }: TimerProps) => {
 
     if (start) {
       const startTime = new Date().getTime();
-      interval = setInterval(() => {
+      interval = window.setInterval(() => {
         const currentTime = Math.floor(
           (new Date().getTime() - startTime) / 1000,
         );
