@@ -1,4 +1,3 @@
-import type { start } from 'repl';
 import {
   checkBoundaries,
   checkSelfHit,
