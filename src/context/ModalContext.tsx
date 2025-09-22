@@ -29,7 +29,7 @@ export const ModalProvider = ({ children }: { children: ReactNode }) => {
     <ModalContext.Provider value={value}>
       {children}
       {modalType && config && (
-        <div className="modal__overlay flex justify--center align--center fixed">
+        <div className="modal__overlay flex align--center fixed">
           <div className={`modal__content p--32 text--center ${modalType}`}>
             <h2 className="mb--16">{config.title}</h2>
             <div className="modal__body">{config.content}</div>

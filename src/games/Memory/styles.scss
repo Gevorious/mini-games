@@ -1,12 +1,12 @@
 .memory-game {
   max-width: max-content;
-  max-width: 80%;
+  max-width: 70%;
   background-color: #1a1f2c;
   border-radius: 8px;
   box-shadow: inset 2px 2px 4px rgba(255, 255, 255, 0.05),
     inset -2px -2px 4px rgba(0, 0, 0, 0.5), 0 6px 20px rgba(0, 0, 0, 0.4);
 
-  .heading {
+  .header {
     color: $neon-green;
     border: 2px solid #2d3748;
     background-color: #18202e;

@@ -6,7 +6,11 @@ const BoardHeader = ({ status, flagRemaining, reset }: BoardHeaderProps) => {
   return (
     <div className="heading flex align--center justify--between py--4 px--8 mb--8">
       <Timer start={status === 'ongoing'} reset={!status} />
-      {status && status !== 'ongoing' && <button onClick={reset}>Reset</button>}
+      {status && status !== 'ongoing' && (
+        <button className="py--4 px--16 pointer" onClick={reset}>
+          Reset
+        </button>
+      )}
       <span className="ml--40">{flagRemaining}</span>
     </div>
   );

@@ -7,4 +7,8 @@ export const games = [
     id: 'memory',
     title: 'Memory',
   },
+  {
+    id: 'snake',
+    title: 'Snake',
+  },
 ];

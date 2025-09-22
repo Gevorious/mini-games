@@ -1,6 +1,6 @@
 import useMemoryGame from './useMemoryGame';
-import './styles.scss';
 import Countdown from './_partials/Countdown';
+import './styles.scss';
 
 const Memory = () => {
   const { isStarted, board, onCardClick, isFlipped, resetBoard } =
@@ -8,7 +8,7 @@ const Memory = () => {
 
   return (
     <div className="memory-game mx--auto">
-      <div className="heading">
+      <div className="header">
         <Countdown started={isStarted} reset={resetBoard} />
       </div>
       <div className="memory-board p--8 mx--auto">
