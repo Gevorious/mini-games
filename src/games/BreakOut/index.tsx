@@ -39,7 +39,11 @@ const BreakOut = () => {
   }, [inActiveBricks]);
 
   const checkBrickHit = (x: number, y: number) => {
-    const { newBricks, dx, dy, hitCount } = updateBricks(x, y, bricks);
+    const { newBricks, newX, newY, dx, dy, hitCount } = updateBricks(
+      x,
+      y,
+      bricks,
+    );
     if (hitCount) {
       dispatch({
         type: UPDATE_BRICKS,
@@ -47,7 +51,7 @@ const BreakOut = () => {
       });
     }
 
-    return { dx, dy, isHit: !!hitCount };
+    return { x: newX, y: newY, dx, dy, isHit: !!hitCount };
   };
 
   useEffect(() => {

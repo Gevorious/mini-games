@@ -76,16 +76,36 @@ export const useBall = (
         }
       }
 
+      let nextX;
+      let nextY;
+
       if (cy <= bricksLowerEdge) {
-        const { dx, dy, isHit } = checkBrickHitRef.current(cx, cy);
+        const {
+          x: nx,
+          y: ny,
+          dx,
+          dy,
+          isHit,
+        } = checkBrickHitRef.current(cx, cy);
         if (isHit) {
           nextVx = dx * nextVx;
           nextVy = dy * nextVy;
+          nextX = nx;
+          nextY = ny;
         }
       }
 
       if (nextVx !== cvx || nextVy !== cvy) {
-        dispatch({ type: BOUNCE, payload: { vx: nextVx, vy: nextVy } });
+        dispatch({
+          type: BOUNCE,
+          payload: {
+            vx: nextVx,
+            vy: nextVy,
+            ...(nextX !== undefined && nextY !== undefined
+              ? { x: nextX, y: nextY }
+              : {}),
+          },
+        });
       }
 
       for (let i = 0; i < Math.max(1, Math.floor(delta)); i++) {

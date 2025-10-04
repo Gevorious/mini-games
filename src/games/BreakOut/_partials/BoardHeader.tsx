@@ -11,7 +11,7 @@ const BoardHeader = ({ score, stage, isFail, reset }: BoardHeaderProps) => {
         </span>
       </div>
       {isFail && (
-        <button onClick={reset} className="pointer">
+        <button onClick={reset} className="pointer py--4 px--16">
           Reset
         </button>
       )}
