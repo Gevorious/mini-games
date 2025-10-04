@@ -9,10 +9,10 @@ import './styles.scss';
 const Layout = () => {
   return (
     <>
-      <div className="notification">
-        <span className="notification-icons">
+      <div className="notification flex--column justify--center align--center">
+        <span className="notification-icons mb--24 relative">
           <FaMobileAlt size={45} color="gray" />
-          <FaBan size={45} color="red" className="ban-icon" />
+          <FaBan size={45} color="red" className="ban-icon absolute" />
         </span>
         <span>This app is only available on desktop screen size</span>
       </div>

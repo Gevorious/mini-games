@@ -8,7 +8,8 @@
     "children": [
       { "label": "Minesweeper", "to": "/games/minesweeper" },
       { "label": "Memory", "to": "/games/memory" },
-      { "label": "Snake", "to": "/games/snake" }
+      { "label": "Snake", "to": "/games/snake" },
+      { "label": "Break Out", "to": "/games/break-out" }
     ]
   }
 ]

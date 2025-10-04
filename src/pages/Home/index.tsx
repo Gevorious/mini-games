@@ -4,7 +4,7 @@ import './styles.scss';
 
 const Home = () => {
   return (
-    <div className="dashboard p--32 mr--48">
+    <div className="dashboard flex justify--evenly p--32 mr--48">
       {games.map((game) => (
         <DashboardCard
           key={game.id}

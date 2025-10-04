@@ -1,10 +1,10 @@
 import Memory from '../games/Memory';
 import Minesweeper from '../games/Minesweeper';
 import Snake from '../games/Snake';
-import TicTakToe from '../games/TicTakToe';
+import BreakOut from '../games/BreakOut';
 
 export const games = {
-  ['tic-tac-toe']: TicTakToe,
+  ['break-out']: BreakOut,
   minesweeper: Minesweeper,
   snake: Snake,
   memory: Memory,

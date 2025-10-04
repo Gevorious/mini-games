@@ -1,0 +1,42 @@
+$brick-radius: 6px;
+$brick-shadow: 0 6px 6px rgba(0, 0, 0, 0.35);
+$brick-inset: inset 0 3px 8px rgba(255, 255, 255, 0.06);
+
+.brick {
+  border-radius: $brick-radius;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, opacity 0.18s ease, filter 0.12s ease;
+  will-change: transform, opacity, filter;
+  user-select: none;
+  z-index: 2;
+
+  &--neon {
+    background: linear-gradient(180deg, #ff7a18, #ff3d00);
+    box-shadow: $brick-shadow, $brick-inset, 0 0 18px rgba(255, 61, 0, 0.12);
+    background-clip: padding-box !important;
+
+    &.blue {
+      background: linear-gradient(180deg, #4fb3ff, #1f8fff);
+    }
+
+    &.pink {
+      background: linear-gradient(180deg, #ff99d0, #ff4fb3);
+    }
+  }
+
+  &--dead {
+    pointer-events: none;
+    animation: brick-dead 0.15s ease forwards;
+  }
+}
+
+@keyframes brick-dead {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}

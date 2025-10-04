@@ -10,7 +10,7 @@ const GameLoader = () => {
 
   const Game = games[gameId];
   return (
-    <div className="mt--48">
+    <div className="mt--32">
       <Game />
     </div>
   );
