@@ -101,9 +101,7 @@ export const useBall = (
           payload: {
             vx: nextVx,
             vy: nextVy,
-            ...(nextX !== undefined && nextY !== undefined
-              ? { x: nextX, y: nextY }
-              : {}),
+            ...(nextX && nextY ? { x: nextX, y: nextY } : {}),
           },
         });
       }

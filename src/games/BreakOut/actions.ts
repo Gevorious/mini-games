@@ -127,26 +127,20 @@ export const updateBricks = (x: number, y: number, bricks: Brick[]) => {
 
   if (hitBricks.length) {
     const brick = hitBricks[0];
-    const overlapX =
-      Math.min(x + BALL_D / 2, brick.x + BRICK_WIDTH) -
-      Math.max(x - BALL_D / 2, brick.x);
-    const overlapY =
-      Math.min(y + BALL_D / 2, brick.y + BRICK_HEIGHT) -
-      Math.max(y - BALL_D / 2, brick.y);
 
-    if (overlapX < overlapY) {
-      dx = -1;
-      if (x < brick.x) {
-        newX = brick.x - BALL_D / 2;
-      } else {
-        newX = brick.x + BRICK_WIDTH + BALL_D / 2;
-      }
-    } else {
+    if (x >= brick.x && x <= brick.x + BRICK_WIDTH) {
       dy = -1;
       if (y < brick.y) {
         newY = brick.y - BALL_D / 2;
       } else {
         newY = brick.y + BRICK_HEIGHT + BALL_D / 2;
+      }
+    } else {
+      dx = -1;
+      if (x > brick.x) {
+        newX = brick.x + BRICK_WIDTH + BALL_D / 2;
+      } else {
+        newX = brick.x - BALL_D / 2;
       }
     }
   }
