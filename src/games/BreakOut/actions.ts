@@ -3,6 +3,8 @@ import {
   BRICK_COLORS,
   BRICK_HEIGHT,
   BRICK_WIDTH,
+  BOARD_HEIGHT,
+  BOARD_WIDTH,
   COLS,
   PADDLE_WIDTH,
   ROWS,
@@ -19,7 +21,7 @@ export const onChangeDir = (e: KeyboardEvent, currentPos: number) => {
   if (
     !paddleDirs[key] ||
     (currentPos <= PADDLE_WIDTH / 2 && paddleDirs[key] < 0) ||
-    (currentPos >= 100 - PADDLE_WIDTH / 2 && paddleDirs[key] > 0)
+    (currentPos >= BOARD_WIDTH - PADDLE_WIDTH / 2 && paddleDirs[key] > 0)
   )
     return 0;
 
@@ -53,14 +55,14 @@ export const checkCollision = (
   if (x < half) {
     return { vx: -vx, vy, x: half + offset, y };
   }
-  if (x > 100 - half) {
-    return { vx: -vx, vy, x: 100 - half - offset, y };
+  if (x > BOARD_WIDTH - half) {
+    return { vx: -vx, vy, x: BOARD_WIDTH - half - offset, y };
   }
   if (y < half) {
     return { vx, vy: -vy, x, y: half + offset };
   }
-  if (y > 100 - half) {
-    return { isFail: true, x, y: 100 - half - offset };
+  if (y > BOARD_HEIGHT - half) {
+    return { isFail: true, x, y: BOARD_HEIGHT - half - offset };
   }
 };
 
@@ -104,44 +106,57 @@ export const generateBricks = (): Brick[] => {
 export const updateBricks = (x: number, y: number, bricks: Brick[]) => {
   const hitBricks: Brick[] = [];
   const newBricks = bricks.map((brick) => {
-    if (brick.active) {
-      if (
-        x + BALL_D / 2 >= brick.x &&
-        x - BALL_D / 2 <= brick.x + BRICK_WIDTH &&
-        y + BALL_D / 2 >= brick.y &&
-        y - BALL_D / 2 <= brick.y + BRICK_HEIGHT
-      ) {
-        const newBrick = { ...brick, active: false };
-        hitBricks.push(newBrick);
-        return newBrick;
-      }
+    if (
+      brick.active &&
+      x + BALL_D / 2 >= brick.x &&
+      x - BALL_D / 2 <= brick.x + BRICK_WIDTH &&
+      y + BALL_D / 2 >= brick.y &&
+      y - BALL_D / 2 <= brick.y + BRICK_HEIGHT
+    ) {
+      const newBrick = { ...brick, active: false };
+      hitBricks.push(newBrick);
+      return newBrick;
     }
     return brick;
   });
 
   let dx: 1 | -1 = 1;
   let dy: 1 | -1 = 1;
-
   let newX = x;
   let newY = y;
 
   if (hitBricks.length) {
-    const brick = hitBricks[0];
+    const minX = Math.min(...hitBricks.map((b) => b.x));
+    const maxX = Math.max(...hitBricks.map((b) => b.x + BRICK_WIDTH));
+    const minY = Math.min(...hitBricks.map((b) => b.y));
+    const maxY = Math.max(...hitBricks.map((b) => b.y + BRICK_HEIGHT));
 
-    if (x >= brick.x && x <= brick.x + BRICK_WIDTH) {
-      dy = -1;
-      if (y < brick.y) {
-        newY = brick.y - BALL_D / 2;
-      } else {
-        newY = brick.y + BRICK_HEIGHT + BALL_D / 2;
-      }
-    } else {
+    const brick = { x: minX, y: minY, width: maxX - minX, height: maxY - minY };
+
+    const overlapLeft = x + BALL_D / 2 - brick.x;
+    const overlapRight = brick.x + brick.width - (x - BALL_D / 2);
+    const overlapTop = y + BALL_D / 2 - brick.y;
+    const overlapBottom = brick.y + brick.height - (y - BALL_D / 2);
+
+    const minOverlap = Math.min(
+      overlapLeft,
+      overlapRight,
+      overlapTop,
+      overlapBottom,
+    );
+
+    if (minOverlap === overlapLeft) {
       dx = -1;
-      if (x > brick.x) {
-        newX = brick.x + BRICK_WIDTH + BALL_D / 2;
-      } else {
-        newX = brick.x - BALL_D / 2;
-      }
+      newX = brick.x - BALL_D / 2;
+    } else if (minOverlap === overlapRight) {
+      dx = -1;
+      newX = brick.x + brick.width + BALL_D / 2;
+    } else if (minOverlap === overlapTop) {
+      dy = -1;
+      newY = brick.y - BALL_D / 2;
+    } else if (minOverlap === overlapBottom) {
+      dy = -1;
+      newY = brick.y + brick.height + BALL_D / 2;
     }
   }
 

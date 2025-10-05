@@ -1,6 +1,12 @@
+import { BOARD_HEIGHT, BOARD_WIDTH, PADDLE_HEIGHT } from '../../constants';
 import type { BallActions } from '../../types';
 
-export const ballInitial = { x: 49.5, y: 97, vx: 0, vy: -1 };
+export const ballInitial = {
+  x: BOARD_WIDTH / 2,
+  y: BOARD_HEIGHT - PADDLE_HEIGHT,
+  vx: 0,
+  vy: -1,
+};
 
 export const MOVE_BALL = 'MOVE_BALL';
 export const BOUNCE = 'BOUNCE';

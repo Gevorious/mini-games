@@ -12,7 +12,12 @@ import {
   RESET_GAME,
   UPDATE_BRICKS,
 } from './reducer';
-import { PADDLE_WIDTH } from './constants';
+import {
+  BOARD_HEIGHT,
+  BOARD_WIDTH,
+  PADDLE_HEIGHT,
+  PADDLE_WIDTH,
+} from './constants';
 import { updateBricks } from './actions';
 import { useModal } from '../../context/ModalContext';
 import './styles.scss';
@@ -74,14 +79,17 @@ const BreakOut = () => {
   }, [isFail]);
 
   return (
-    <div className="break-out mx--auto">
+    <div style={{ width: `${BOARD_WIDTH}px` }} className="break-out mx--auto">
       <BoardHeader
         score={totalScore + stageScore}
         stage={stage}
         isFail={isFail}
         reset={() => dispatch({ type: RESET_GAME })}
       />
-      <div className="board mx--auto relative width-100">
+      <div
+        style={{ height: `${BOARD_HEIGHT}px` }}
+        className="board mx--auto relative width-100"
+      >
         {stageComplete || stage === 0 ? (
           <div className="start-btn-wrapper width-100 flex flex--column justify--center align--center">
             {stageComplete && <p className="mb--16 mt--0">Stage Completed!</p>}
@@ -99,7 +107,11 @@ const BreakOut = () => {
                 <Paddle pos={paddlePos} dispatch={dispatch} />
                 <Ball
                   checkBrickHit={checkBrickHit}
-                  paddle={{ width: PADDLE_WIDTH, x: paddlePos, y: 96.5 }}
+                  paddle={{
+                    width: PADDLE_WIDTH,
+                    x: paddlePos,
+                    y: BOARD_HEIGHT - PADDLE_HEIGHT,
+                  }}
                   stage={stage}
                   endGame={() => dispatch({ type: END_GAME })}
                 />

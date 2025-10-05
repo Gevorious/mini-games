@@ -1,8 +1,10 @@
 export const BOARD_WIDTH = 800;
-export const PADDLE_WIDTH = 20;
-export const BALL_D = 2;
-export const BRICK_WIDTH = 5;
-export const BRICK_HEIGHT = 5;
+export const BOARD_HEIGHT = 600;
 export const COLS = 20;
 export const ROWS = 8;
+export const PADDLE_WIDTH = 120;
+export const PADDLE_HEIGHT = 16;
+export const BALL_D = 16;
+export const BRICK_WIDTH = BOARD_WIDTH / COLS;
+export const BRICK_HEIGHT = 30;
 export const BRICK_COLORS = ['green', 'blue', 'pink'];

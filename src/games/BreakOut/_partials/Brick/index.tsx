@@ -11,10 +11,10 @@ const Brick = ({ brick }: BrickProps) => {
         active ? '' : 'brick--dead'
       } absolute`}
       style={{
-        left: `${x}%`,
-        top: `${y}%`,
-        width: `${width}%`,
-        height: `${height}%`,
+        left: `${x}px`,
+        top: `${y}px`,
+        width: `${width}px`,
+        height: `${height}px`,
       }}
     ></div>
   );

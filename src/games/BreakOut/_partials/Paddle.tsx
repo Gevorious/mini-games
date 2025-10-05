@@ -1,4 +1,4 @@
-import { PADDLE_WIDTH } from '../constants';
+import { PADDLE_HEIGHT, PADDLE_WIDTH } from '../constants';
 import type { PaddleProps } from '../types';
 import { usePaddle } from '../hooks/usePaddle';
 import { memo } from 'react';
@@ -9,8 +9,9 @@ const Paddle = ({ dispatch, pos }: PaddleProps) => {
   return (
     <div
       style={{
-        left: `${pos}%`,
-        width: `${PADDLE_WIDTH}%`,
+        height: `${PADDLE_HEIGHT}px`,
+        left: `${pos}px`,
+        width: `${PADDLE_WIDTH}px`,
       }}
       className="paddle absolute"
     />

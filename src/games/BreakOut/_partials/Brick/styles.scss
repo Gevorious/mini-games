@@ -11,16 +11,16 @@ $brick-inset: inset 0 3px 8px rgba(255, 255, 255, 0.06);
   z-index: 2;
 
   &--neon {
-    background: linear-gradient(180deg, #ff7a18, #ff3d00);
+    background: linear-gradient(180deg, #fc9c58, #ff3d00);
     box-shadow: $brick-shadow, $brick-inset, 0 0 18px rgba(255, 61, 0, 0.12);
     background-clip: padding-box !important;
 
     &.blue {
-      background: linear-gradient(180deg, #4fb3ff, #1f8fff);
+      background: linear-gradient(180deg, #6fc0ff, #0080ff);
     }
 
     &.pink {
-      background: linear-gradient(180deg, #ff99d0, #ff4fb3);
+      background: linear-gradient(180deg, #ff99d0, #ff0794);
     }
   }
 

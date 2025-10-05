@@ -7,10 +7,10 @@ const Ball = ({ paddle, stage, checkBrickHit, endGame }: BallProps) => {
   const { x, y } = useBall(paddle, stage, checkBrickHit, endGame);
 
   const styles = {
-    left: `${x}%`,
-    top: `${y}%`,
-    width: `${BALL_D}%`,
-    height: `${BALL_D}%`,
+    left: `${x}px`,
+    top: `${y}px`,
+    width: `${BALL_D}px`,
+    height: `${BALL_D}px`,
   };
 
   return <div style={styles} className="ball absolute" />;

@@ -107,7 +107,7 @@ export const useBall = (
       }
 
       for (let i = 0; i < Math.max(1, Math.floor(delta)); i++) {
-        dispatch({ type: MOVE_BALL, payload: Math.min(2.2, 1 + 0.1 * stage) });
+        dispatch({ type: MOVE_BALL, payload: Math.min(16, 6 + 0.5 * stage) });
       }
 
       frameId = requestAnimationFrame(loop);

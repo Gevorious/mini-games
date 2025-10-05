@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { RESET_ACC, MOVE } from '../reducer';
+import { RESET_ACC, MOVE_PADDLE } from '../reducer';
 import { onChangeDir } from '../actions';
 import type { Direction } from '../types';
 
@@ -41,7 +41,7 @@ export const usePaddle = (dispatch: React.Dispatch<any>, pos: number) => {
     const loop = () => {
       const dir = dirRef.current;
       if (dir !== 0) {
-        dispatch({ type: MOVE, payload: dir });
+        dispatch({ type: MOVE_PADDLE, payload: dir });
       }
       frameId = requestAnimationFrame(loop);
     };
