@@ -103,7 +103,13 @@ export const generateBricks = (): Brick[] => {
   return bricks;
 };
 
-export const updateBricks = (x: number, y: number, bricks: Brick[]) => {
+export const updateBricks = (
+  x: number,
+  y: number,
+  vx: number,
+  vy: number,
+  bricks: Brick[],
+) => {
   const hitBricks: Brick[] = [];
   const newBricks = bricks.map((brick) => {
     if (
@@ -145,16 +151,16 @@ export const updateBricks = (x: number, y: number, bricks: Brick[]) => {
       overlapBottom,
     );
 
-    if (minOverlap === overlapLeft) {
+    if (minOverlap === overlapLeft && vx > 0) {
       dx = -1;
       newX = brick.x - BALL_D / 2;
-    } else if (minOverlap === overlapRight) {
+    } else if (minOverlap === overlapRight && vx < 0) {
       dx = -1;
       newX = brick.x + brick.width + BALL_D / 2;
-    } else if (minOverlap === overlapTop) {
+    } else if (minOverlap === overlapTop && vy > 0) {
       dy = -1;
       newY = brick.y - BALL_D / 2;
-    } else if (minOverlap === overlapBottom) {
+    } else if (minOverlap === overlapBottom && vy < 0) {
       dy = -1;
       newY = brick.y + brick.height + BALL_D / 2;
     }

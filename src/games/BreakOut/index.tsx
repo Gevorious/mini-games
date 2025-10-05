@@ -43,10 +43,12 @@ const BreakOut = () => {
     }
   }, [inActiveBricks]);
 
-  const checkBrickHit = (x: number, y: number) => {
+  const checkBrickHit = (x: number, y: number, vx: number, vy: number) => {
     const { newBricks, newX, newY, dx, dy, hitCount } = updateBricks(
       x,
       y,
+      vx,
+      vy,
       bricks,
     );
     if (hitCount) {

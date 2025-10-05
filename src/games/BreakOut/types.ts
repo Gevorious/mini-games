@@ -27,7 +27,9 @@ export type BallProps = {
   checkBrickHit: (
     x: number,
     y: number,
-  ) => { x: number; y: number; dx: 1 | -1; dy: 1 | -1; isHit: boolean };
+    vx: number,
+    vy: number,
+  ) => { x: number; y: number; dx: number; dy: number; isHit: boolean };
   endGame: () => void;
 };
 

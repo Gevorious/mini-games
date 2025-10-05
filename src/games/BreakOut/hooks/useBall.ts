@@ -23,7 +23,6 @@ export const useBall = (
   const simRef = useRef({ x, y, vx, vy });
   const paddleRef = useRef(paddle);
   const checkBrickHitRef = useRef(checkBrickHit);
-  const lastTimeRef = useRef<number | null>(null);
 
   useEffect(() => {
     simRef.current = { x, y, vx, vy };
@@ -40,15 +39,9 @@ export const useBall = (
   useEffect(() => {
     let frameId: number;
 
-    const loop = (time: number) => {
+    const loop = () => {
       const { x: cx, y: cy, vx: cvx, vy: cvy } = simRef.current;
       const paddleNow = paddleRef.current;
-
-      let delta = 0;
-      if (lastTimeRef.current != null) {
-        delta = (time - lastTimeRef.current) / 16.67;
-      }
-      lastTimeRef.current = time;
 
       let nextVx = cvx;
       let nextVy = cvy;
@@ -86,7 +79,7 @@ export const useBall = (
           dx,
           dy,
           isHit,
-        } = checkBrickHitRef.current(cx, cy);
+        } = checkBrickHitRef.current(cx, cy, cvx, cvy);
         if (isHit) {
           nextVx = dx * nextVx;
           nextVy = dy * nextVy;
@@ -106,10 +99,7 @@ export const useBall = (
         });
       }
 
-      for (let i = 0; i < Math.max(1, Math.floor(delta)); i++) {
-        dispatch({ type: MOVE_BALL, payload: Math.min(16, 6 + 0.5 * stage) });
-      }
-
+      dispatch({ type: MOVE_BALL, payload: Math.min(12, 6 + 0.5 * stage) });
       frameId = requestAnimationFrame(loop);
     };
 
