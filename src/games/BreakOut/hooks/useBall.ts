@@ -99,7 +99,7 @@ export const useBall = (
         });
       }
 
-      dispatch({ type: MOVE_BALL, payload: Math.min(12, 6 + 0.5 * stage) });
+      dispatch({ type: MOVE_BALL, payload: Math.min(10, 6 + 0.5 * stage) });
       frameId = requestAnimationFrame(loop);
     };
 

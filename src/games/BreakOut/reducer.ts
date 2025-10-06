@@ -30,7 +30,7 @@ export const reducer = (
     case MOVE_PADDLE: {
       const dir = (action.payload as Paddle['dir']) ?? 0;
 
-      const newDelta = Math.min(state.delta + 0.3, 12);
+      const newDelta = Math.min(state.delta + 0.4, 14);
 
       let newPos = state.paddlePos + dir * newDelta;
 
