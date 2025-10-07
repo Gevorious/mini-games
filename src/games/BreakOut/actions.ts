@@ -151,17 +151,17 @@ export const updateBricks = (
       overlapBottom,
     );
 
-    if (minOverlap === overlapLeft && vx > 0) {
-      dx = -1;
+    if (minOverlap === overlapLeft) {
+      vx > 0 ? (dx = -1) : (dy = -1);
       newX = brick.x - BALL_D / 2;
-    } else if (minOverlap === overlapRight && vx < 0) {
-      dx = -1;
+    } else if (minOverlap === overlapRight) {
+      vx < 0 ? (dx = -1) : (dy = -1);
       newX = brick.x + brick.width + BALL_D / 2;
-    } else if (minOverlap === overlapTop && vy > 0) {
-      dy = -1;
+    } else if (minOverlap === overlapTop) {
+      vy > 0 ? (dy = -1) : (dx = -1);
       newY = brick.y - BALL_D / 2;
-    } else if (minOverlap === overlapBottom && vy < 0) {
-      dy = -1;
+    } else if (minOverlap === overlapBottom) {
+      vy < 0 ? (dy = -1) : (dx = -1);
       newY = brick.y + brick.height + BALL_D / 2;
     }
   }
