@@ -15,4 +15,8 @@ export const games = [
     id: 'break-out',
     title: 'Break Out',
   },
+  {
+    id: 'pac-man',
+    title: 'Pac-Man',
+  },
 ];
