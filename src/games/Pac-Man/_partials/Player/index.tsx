@@ -34,7 +34,7 @@ const Player = ({ update, dispatch, player, delay, isFail }: PlayerProp) => {
     const interval = window.setInterval(() => {
       !delay && !isFail && dispatch({ type: MOVE_PLAYER });
       update([x, y]);
-    }, 20);
+    }, 30);
 
     return () => {
       window.clearInterval(interval);

@@ -23,7 +23,7 @@ export const initialState = {
   isStarted: false,
   isWin: null as null | boolean,
   score: 0,
-  ghostSpeed: 50,
+  ghostSpeed: 60,
 };
 
 export const UPDATE_PELLETS = 'UPDATE_PELLETS';

@@ -66,12 +66,12 @@ const PacMan = () => {
   }, [isWin]);
 
   useEffect(() => {
-    if (pellets.length < initialState.pellets.length / 2 && ghostSpeed > 40) {
-      dispatch({ type: SET_GHOSTS_SPEED, payload: 40 });
+    if (pellets.length < initialState.pellets.length / 2 && ghostSpeed > 50) {
+      dispatch({ type: SET_GHOSTS_SPEED, payload: 50 });
     }
 
-    if (pellets.length < initialState.pellets.length / 4 && ghostSpeed > 30) {
-      dispatch({ type: SET_GHOSTS_SPEED, payload: 35 });
+    if (pellets.length < initialState.pellets.length / 4 && ghostSpeed > 40) {
+      dispatch({ type: SET_GHOSTS_SPEED, payload: 40 });
     }
   }, [pellets]);
 
